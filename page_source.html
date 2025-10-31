@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Samurai Sudoku</title>
+<meta charset="utf-8">
+<link rel="canonical" href="https://www.samurai-sudoku.com/">
+<link rel="alternate" hreflang="en" href="https://www.samurai-sudoku.com/" />
+<link rel="alternate" hreflang="de" href="https://www.samurai-sudoku.com/de/" />
+<link rel="alternate" hreflang="es" href="https://www.samurai-sudoku.com/es/" />
+<link rel="alternate" hreflang="fr" href="https://www.samurai-sudoku.com/fr/" />
+<link rel="alternate" hreflang="it" href="https://www.samurai-sudoku.com/it/" />
+<link rel="alternate" hreflang="nl" href="https://www.samurai-sudoku.com/nl/" />
+<link rel="alternate" hreflang="pt" href="https://www.samurai-sudoku.com/pt/" />
+<link rel="alternate" hreflang="sv" href="https://www.samurai-sudoku.com/sv/" />
+<link rel="alternate" hreflang="x-default" href="https://www.samurai-sudoku.com/" />
+<meta name="description" content="Play unlimited samurai sudoku puzzles online. Solver with hints and step-by-step solutions. Print samurai sudoku puzzles free at several grid sizes. Each puzzle has a unique solution and can be solved with pure logic.">
+<meta name="keywords" content="sudoku, samurai sudoku, sudoku samurai, gattai 5, samurai sudoku solver, samurai solver, online sudoku, daily sudoku, su doku, sudoku puzzle, suduko, sudoko, soduku, sodoku">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="etMTB9EawnTgs-kgFvnb5hnE1q1--eaUavbiNdO3enM" />
+<style>
+body,td,a,p{font-size:13px;font-family:arial,sans-serif}
+h1{font-size:36px;color:#333;margin:0;padding:26px;background-image:url(sudoku2.gif)}
+button{width:67px;height:19px;font:12px arial,sans-serif;background-color:#ddd;border:1px solid #000;padding:0}
+a{color:#0000cc;text-decoration:none}
+a:hover{color:#006;text-decoration:underline}
+.a{color:#fdb;background-color:#369}
+.b{color:#000;background-color:#ddd}
+.a,.b{border:1px solid #000;padding:1px 4px}
+.a,.b{font-size:12px;text-decoration:none}
+.a:hover{color:#fdb;cursor:default}
+.b:hover{color:#555;background-color:#bbb}
+.c,.d,.e,.f,.g,.h{position:absolute;width:25px;height:25px;background-color:#f8f8f8}
+.c{border-top:#c0c0c0 solid 2px}
+.d{border-top:#369 solid 2px}
+.e{border-left:#c0c0c0 solid 2px}
+.f{border-left:#369 solid 2px}
+.g{border-bottom:#369 2px solid}
+.h{border-right:#369 2px solid}
+.i,.j,.k,.l{border:0;width:23px;text-align:center;vertical-align:middle;background-color:transparent}
+.i{font:bold 12pt arial,sans-serif;height:20px}
+.j{font:normal 9pt arial,sans-serif;height:19px;margin-top:1px}
+.k{font:normal 8pt arial,sans-serif;height:18px;margin-top:2px}
+.l{font:normal 7pt arial,sans-serif;height:17px;margin-top:3px}
+.psred{font-weight:bold;color:#b22}
+.psblue{font-weight:bold;color:#259}
+.spblue{font-weight:normal;color:#00c}
+.spblack{font-weight:bold;color:#000}
+.adslot_1{width:160px;height:600px}
+.dv1{border:1px solid #aaa;margin:20px;padding:10px}
+.dv2{margin:15px 0;padding:0px}
+.float{float:left}
+.centered{display:block;margin:0 auto;width:240px}
+.btn{width:147px;height:47px;padding:4px 0}
+#col1{position:absolute;left:8px;top:8px;width:397px}
+#col2{position:absolute;left:8px;top:112px;width:160px;height:600px}
+#col3{position:absolute;left:174px;top:112px;width:230px}
+#col3b{position:absolute;left:174px;top:300px;width:230px}
+#footer{margin:0 12px 0 420px;padding:30px 0 8px 0}
+#mobile{display:none}
+</style>
+<style media="screen">
+.nd{display:none}
+body{position:relative;margin:0 100px 0 0;text-align:center}
+#col4{padding-top:36px;margin:0 12px 0 420px}
+@media screen and (max-width:30.5em) {
+h1{padding:6px}
+body{margin:0}
+.adslot_1{width:320px;height:50px}
+#col1{position:relative;left:0;top:0;width:100%}
+#col2{position:relative;left:0;top:0;width:320px;height:50px}
+#col3{position:relative;left:0;top:0;width:100%}
+#mobile{display:block}
+#col3b{position:relative;left:8px;top:0;width:95%}
+#col4{display:none}
+#footer{margin:0}
+}
+</style>
+<style media="print">
+.np{display:none !important}
+script,iframe,ins{display:none !important;}
+#col4{padding-top:48px}
+</style>
+<script src='sudoku.js'></script>
+</head>
+<body onload="Init()">
+<div id="col1" class="np">
+<h1>Samurai Sudoku</h1>
+</div>
+<div id="col2" class="np">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154995056183850" crossorigin="anonymous"></script>
+<ins class="adsbygoogle adslot_1"
+style="display:inline-block"
+data-full-width-responsive="true"
+data-ad-client="ca-pub-8154995056183850"
+data-ad-slot="2440953680"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div id="col3" class="np">
+<p><b>Samurai sudoku</b> puzzles consist of five overlapping sudoku grids. The standard sudoku rules apply to each 9&nbsp;x&nbsp;9 grid. Place digits from 1 to 9 in each empty cell. Every row, every column, and every 3&nbsp;x&nbsp;3 box should contain one of each digit.</p>
+<p>The puzzles on <a href="//www.samurai-sudoku.com">Samurai Sudoku</a> have one unique solution which can be found with pure logic, no guessing required.</p>
+</div>
+<div id="mobile">
+<a href="classic/"><img src="sudoku3.gif" alt="Samurai Sudoku" width="320" height="320" border=0></a>
+</div>
+<div id="col3b" class="np">
+<p>Learn more about sudoku samurai and other sudoku variants at <a href="//en.wikipedia.org/wiki/Sudoku#Variants" target="_blank">Wikipedia Sudoku</a></p>
+<p>Our <a href="#ai">Sudoku Archive</a> has many graded puzzles. All the puzzle designs on this site have been created by hand, not computer.</p>
+<form name="fa" action="">
+<select id="ai" name="ai" aria-label="Samurai Sudoku Archive" style="width:214px" onChange="L(document.fa.ai.options[document.fa.ai.selectedIndex].value)">
+<option selected>Samurai Sudoku Archive</option>
+</select>
+</form>
+<p><a href="de/">Deutsch</a> - <a href="es/">Espa&#241;ol</a><br><a href="fr/">Fran&#231;ais</a> - <a href="it/">Italiano</a> - <a href="nl/">Nederlands</a><br><a href="pt/">Portugu&#234;s</a> - <a href="sv/">Svenska</a></p>
+<p><a href="/cdn-cgi/l/email-protection#83bcf0f6e1e9e6e0f7bed0e2eef6f1e2eaa3d0f6e7ece8f6a5e2eef3b8e1ece7fabec0ebe6e0e8a3ecf6f7a3f7ebeaf0a3d0e2eef6f1e2eaa3d0f6e7ece8f6a3f0eaf7e6b9a3acacf4f4f4adf0e2eef6f1e2eaaef0f6e7ece8f6ade0eceeac" target="_blank">Tell a Friend</a> - <a href="#" onclick="E()">Feedback</a><br><a href="#" onclick="E()">Commercial Enquiries</a></p>
+<p><a href="//www.sudukopuzzles.org/" target="_blank" title="Printable sudoku puzzles: 2, 4 or 6 puzzles per page"><span class="spblue">Sudoku </span><span class="spblack">Print</span><span class="spblue">ables</span></a><br><a href="//www.fiendishsudoku.com/" target="_blank">Fiendish Sudoku</a> - <a class="psblue" href="//www.extremesudoku.info/" target="_blank" title="Sudoku too easy? Try our extra-fiendish puzzles">Extreme Sudoku</a><br><a href="//www.personalsudoku.com/" target="_blank" title="Sudoku puzzles based on YOUR initials"><span class="psred">Personal </span><span class="psblue">Sudoku</span></a></p>
+<div class="dv1">
+<form action="https://www.paypal.com/cgi-bin/webscr" target="_blank" method="post">
+<input type="hidden" name="cmd" value="_donations">
+<input type="hidden" name="business" value="nxn@netgate.net">
+<input type="hidden" name="item_name" value="Samurai-Sudoku.com Donation">
+<input type="hidden" name="no_shipping" value="1">
+<input type="hidden" name="return" value="//www.samurai-sudoku.com/thanks.html">
+<input type="hidden" name="cn" value="Your comments are welcome">
+<input type="hidden" name="tax" value="0">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="bn" value="PP-DonationsBF">
+<input type="image" src="btn.gif" style="width:147px;height:47px;padding:0 0 8px 0" name="submit" alt="Please make a donation">
+<div>
+<label for="currency_code">Currency:</label> 
+<select name="currency_code" id="currency_code">
+<option value="USD" selected>USD $</option>
+<option value="CAD">CAD $</option>
+<option value="GBP">GBP &pound;</option>
+<option value="AUD">AUD $</option>
+<option value="NZD">NZD $</option>
+</select>
+</div>
+</form>
+</div>
+</div>
+<div id="col4">
+<center>
+<table cellspacing="0" cellpadding="0"><tr><td>
+<table width="100%"><tr><td id="c7" align="left">&nbsp;</td><td id="c8" align="right"></td></tr></table>
+<table cellspacing="0" cellpadding="0">
+<tr><td colspan="2">
+<div id="bd" style="position:relative;width:569px;height:569px">
+<div id="r1r1c2"><br><br><br><br><br><br><br><br><center><h4>Loading...</h4></center></div>
+<div id="nb"></div>
+</div>
+</td></tr>
+<tr class="np" style="font-size:9pt;font-weight:normal;line-height:36px">
+<td align="left"><input type="Checkbox" id="ck" aria-label="Show Conflicts" onclick="V(0)">Show&nbsp;Conflicts</td>
+<td align="right"><span id="t1">Timer</span><input type="Checkbox" id="t0" aria-label="Timer" onclick="TT()"></td>
+</tr>
+</table>
+</td></tr>
+<tr><td>
+<table class="nd" width="100%"><tr><td align="right">www.samurai-sudoku.com</td></tr></table>
+</td></tr>
+<tr><td>
+<table class="np" width="100%"><tr>
+<td><button id="b1" onclick="H()">Hint</button></td>
+<td><button id="b2" onclick="S(1)">Solve&nbsp;Step</button></td>
+<td><button id="b9" onclick="Q()">Solve</button></td>
+<td><button id="b3" onclick="R()">Restart</button></td>
+<td><button id="b4" onclick="C()">Clear&nbsp;Grid</button></td>
+<td><button id="b5" onclick="LL()">Load</button></td>
+<td><button id="b6" onclick="SS()">Save</button></td>
+<td><button id="b7" onclick="P(this)">Print...</button></td>
+</tr></table>
+<table class="np" cellspacing="0" cellpadding="0" width="100%" style="margin-top:2px"><tr><td>
+<div style="position:relative;top:0;z-index:1;border:1px solid #369"><div style="width:100%">
+<iframe id="st" width="100%" height="48" frameborder="0" marginwidth="2" title="output"></iframe>
+</div></div>
+</td></tr>
+<tr class="np" style="font-size:9pt;padding-bottom:3px;font-weight:normal">
+<td align="right" nowrap>
+<a class="a" id="a0" href="" onclick="return T(0)">Collapsed</a>
+<a class="b" id="a1" href="" onclick="return T(1)">Expanded</a>
+</td>
+</tr></table>
+</td></tr>
+<tr class="np"><td>
+<a href="sudoku-ebook.html" target="_blank" title="Samurai Sudoku ebook"><img class="float" src="book.jpg" alt="Samurai Sudoku ebook" width="113" height="150"></a>
+<div class="dv2">
+<a class="psblue" href="sudoku-ebook.html" target="_blank" title="Samurai Sudoku ebook">Need printed puzzles? Print as many as 101 new samurai sudoku<br>
+puzzles in one go with our PDF ebook.</a>
+</div>
+<div class="dv2">
+<a class="psblue" href="sudoku-ebook.html" target="_blank" title="Samurai Sudoku ebook">New puzzles!</a>&nbsp; Get our 101-puzzle Samurai Sudoku printable PDF/ebook for<br>
+offline solving or to give to your friends and relatives.&nbsp; Twenty or twenty-one new<br>
+puzzles at each difficulty level.&nbsp; One puzzle per page.&nbsp; Full solutions included<br>
+in the back of the book.&nbsp; Instant PDF download.&nbsp; 
+<a class="psblue" href="sudoku-ebook.html" target="_blank" title="Samurai Sudoku ebook">Click here for more info.</a>
+</div>
+<div class="centered">
+<img class="float" src="pdf.png" alt="Samurai Sudoku pdf" width="64" height="64"/>Samurai Sudoku PDF $4.95
+<form action="https://www.paypal.com/cgi-bin/webscr" target="_blank" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="4X4YMB6GVXWHN">
+<input type="image" class="btn" src="buy.jpg" name="submit" alt="Buy now">
+</form>
+</div>
+</td></tr>
+</table>
+</center>
+</div>
+<div id="footer" class="np">Need samurai sudoku puzzles for your organization's publications? <a href="#" onclick="E()">Contact us</a> for reasonable rates.<br><br>Copyright 2006-<span id="currentyear"></span><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.getElementById("currentyear").innerHTML=new Date().getFullYear()</script> Samurai-Sudoku.com. All rights reserved. <a href="privacy.html" target="_blank">Privacy</a></div>
+</body>
+</html>

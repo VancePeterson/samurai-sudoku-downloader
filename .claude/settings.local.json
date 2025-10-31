@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.samurai-sudoku.com)",
+      "WebSearch"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
