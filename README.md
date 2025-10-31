@@ -1,15 +1,15 @@
-# ⚔️ Samurai Sudoku Puzzle Downloader
+# Samurai Sudoku Puzzle Downloader
 
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🌟 Project Overview
+## Project Overview
 
 This is a versatile Python utility designed to download **Samurai Sudoku** puzzles from the official [https://www.samurai-sudoku.com/](https://www.samurai-sudoku.com/) archive for a specified date range. The puzzles are captured from the site's print preview and saved as high-quality **Print-ready PDF files** for offline solving.
 
 It supports both a **Command Line Interface (CLI)** for scripting and automation, and a **Graphical User Interface (GUI)** built with `tkinter` for easy, visual selection and download management.
 
-## ✨ Features
+## Features
 
 * **Date Range Selection:** Download all puzzles published within a start and end date.
 * **PDF Output:** Puzzles are saved as high-quality PDF files.
@@ -20,7 +20,7 @@ It supports both a **Command Line Interface (CLI)** for scripting and automation
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
