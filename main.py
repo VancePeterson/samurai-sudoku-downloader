@@ -185,6 +185,25 @@ class SamuraiSudokuDownloader:
             # Wait for page to update after selection (smart wait instead of fixed sleep)
             time.sleep(0.5)  # Minimal delay for dropdown change
 
+            # Click "Full Page" radio button for size selection
+            if self.verbose:
+                print(f"  Selecting 'Full Page' size...")
+            try:
+                # Find all radio buttons with name="r" (size options)
+                radio_buttons = driver.find_elements(By.XPATH, "//input[@type='radio' and @name='r']")
+                # The "Full Page" option is typically the last one
+                if len(radio_buttons) >= 4:
+                    full_page_radio = radio_buttons[3]  # 4th option (index 3) is Full Page
+                    full_page_radio.click()
+                    time.sleep(0.3)  # Brief wait for size change to apply
+                    if self.verbose:
+                        print(f"  ✓ Selected 'Full Page' size")
+                elif self.verbose:
+                    print(f"  ⚠ Size options not found, using default")
+            except Exception as e:
+                if self.verbose:
+                    print(f"  ⚠ Could not select Full Page size: {e}")
+
             # Store the main window handle
             main_window = driver.current_window_handle
 
