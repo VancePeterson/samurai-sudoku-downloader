@@ -74,10 +74,15 @@ class SamuraiSudokuDownloader:
         try:
             self.driver = webdriver.Chrome(options=chrome_options)
         except Exception as e:
-            print(f"ERROR: Failed to initialize Chrome driver: {e}")
-            print("Make sure you have Chrome and chromedriver installed.")
-            print("Install chromedriver with: sudo apt-get install chromium-chromedriver")
-            sys.exit(1)
+            error_msg = (
+                f"Failed to initialize Chrome driver: {e}\n\n"
+                f"Make sure you have Chrome and chromedriver installed.\n"
+                f"On macOS, install with: brew install chromedriver\n"
+                f"You may also need to allow chromedriver in System Settings > Privacy & Security"
+            )
+            if self.verbose:
+                print(f"ERROR: {error_msg}")
+            raise RuntimeError(error_msg) from e
         
         self.wait = WebDriverWait(self.driver, 10)
     
@@ -1087,7 +1092,7 @@ class SamuraiSudokuGUI:
         """Add message to log text area"""
         self.log_text.insert(tk.END, f"{message}\n")
         self.log_text.see(tk.END)
-        self.root.update_idletasks()
+        # Note: update_idletasks() removed - causes crash on macOS when called from background thread
 
     def validate_inputs(self):
         """Validate user inputs before starting download"""
@@ -1244,6 +1249,88 @@ def parse_date(date_string):
         raise argparse.ArgumentTypeError(f"Invalid date format: {date_string}. Use YYYY-MM-DD")
 
 
+def interactive_mode():
+    """Run in interactive mode - prompts user for input"""
+    print("\n" + "="*29)
+    print("  Samurai Sudoku Downloader  ")
+    print("="*29 + "\n")
+
+    # Get output directory
+    default_output = str(Path.home() / "Downloads" / "SamuraiSudoku")
+    print(f"Output Directory")
+    print(f"  (Press Enter for default: {default_output})")
+    output_dir = input("  Path: ").strip()
+    if not output_dir:
+        output_dir = default_output
+    print(f"  ✓ Using: {output_dir}\n")
+
+    # Get start date
+    default_start = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
+    while True:
+        print(f"Start Date (YYYY-MM-DD)")
+        print(f"  (Press Enter for default: {default_start})")
+        start_input = input("  Date: ").strip()
+        if not start_input:
+            start_input = default_start
+        try:
+            start_date = datetime.strptime(start_input, '%Y-%m-%d')
+            print(f"  ✓ Start date: {start_date.strftime('%Y-%m-%d')}\n")
+            break
+        except ValueError:
+            print(f"  ✗ Invalid date format. Please use YYYY-MM-DD\n")
+
+    # Get end date
+    default_end = datetime.now().strftime('%Y-%m-%d')
+    while True:
+        print(f"End Date (YYYY-MM-DD)")
+        print(f"  (Press Enter for default: {default_end})")
+        end_input = input("  Date: ").strip()
+        if not end_input:
+            end_input = default_end
+        try:
+            end_date = datetime.strptime(end_input, '%Y-%m-%d')
+            if end_date < start_date:
+                print(f"  ✗ End date must be after start date\n")
+                continue
+            print(f"  ✓ End date: {end_date.strftime('%Y-%m-%d')}\n")
+            break
+        except ValueError:
+            print(f"  ✗ Invalid date format. Please use YYYY-MM-DD\n")
+
+    # Use 10 parallel workers by default
+    workers = 10
+
+    # Confirm and start
+    print("="*60)
+    print("Summary:")
+    print(f"  Output:  {output_dir}")
+    print(f"  Dates:   {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
+    print(f"  Workers: {workers}")
+    print("="*60)
+    print("\nPress Enter to start download (Ctrl+C to cancel)...")
+    input()
+
+    # Run download
+    try:
+        downloader = SamuraiSudokuDownloader(
+            output_dir=output_dir,
+            headless=True
+        )
+        downloader.download_puzzles(
+            start_date,
+            end_date,
+            max_workers=workers
+        )
+    except KeyboardInterrupt:
+        print("\n\n⚠ Download cancelled by user")
+        sys.exit(0)
+    except Exception as e:
+        print(f"\n✗ ERROR: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+
 def main():
     """Main entry point - launches GUI by default or CLI if arguments provided"""
     # Check if command-line arguments were provided
@@ -1320,10 +1407,8 @@ Examples:
             traceback.print_exc()
             sys.exit(1)
     else:
-        # Run in GUI mode
-        root = tk.Tk()
-        app = SamuraiSudokuGUI(root)
-        root.mainloop()
+        # Run in interactive mode
+        interactive_mode()
 
 
 if __name__ == '__main__':
